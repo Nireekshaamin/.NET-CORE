@@ -1,0 +1,41 @@
+﻿@model IEnumerable<DFA_CORE.Models.Trainee>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create" class="text-success "><i class="fa-solid fa-plus"></i></a>
+</p>
+<table class="table text-light">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Tname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tage)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tage)
+            </td>
+            <td>
+                    <a asp-action="Edit" class="text-warning" asp-route-id="@item.Tid"><i class="fa-solid fa-pen-to-square"></i></a> |
+                    <a asp-action="Details" class="text-info" asp-route-id="@item.Tid"><i class="fa-solid fa-circle-info"></i></a> |
+                    <a asp-action="Delete" class="text-danger" asp-route-id="@item.Tid"><i class="fa-solid fa-trash"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
